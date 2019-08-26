@@ -1,1 +1,1 @@
-web: java -Dserver.port=$PORT $JAVA_OPTS -jar target/Heroku01.jar
+web: java -jar target/Heroku01.jar
