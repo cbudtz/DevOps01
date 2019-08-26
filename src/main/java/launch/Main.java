@@ -16,7 +16,12 @@ public class Main {
     public static void main(String[] args) throws LifecycleException {
         tomcat = new Tomcat();
         tomcat.setBaseDir("temp");
-        tomcat.setPort(80);
+        String port = System.getenv("PORT");
+        if (port==null){
+            port="8080";
+        }
+
+        tomcat.setPort(Integer.parseInt(port));
         tomcat.getConnector();
 
         Context ctx = tomcat.addWebapp("/", new File("src/main/webapp").getAbsolutePath());
